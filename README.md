@@ -92,6 +92,17 @@
 ```bash
 git clone https://github.com/your-org/ai-chatting-app.git
 cd ai-chatting-app
+🌟 Future Enhancements
+- Mobile app version (React Native)
+- AI-powered smart replies
+- End-to-end encryption (production level)
+
+🤝 Contributing
+We welcome contributions! Fork, make changes, and submit a PR.
+
+📜 License
+This project is licensed under the MIT License.
 
 <p align="center"> Made with ❤️ by Our Team | Powered by ☀️ Sanatan-inspired Values </p> ```
+
 
