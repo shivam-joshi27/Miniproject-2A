@@ -11,7 +11,20 @@
   <img src="https://img.shields.io/badge/AI-OpenAI_API-orange?style=for-the-badge" />
   <img src="https://img.shields.io/badge/Frontend-HTML/CSS/JS-yellow?style=for-the-badge" />
 </p>
+<!-- Mini Project 2A -->
+<footer>
+ <h2>🌟 Future Enhancements</h2> 🌟
+<li> Mobile app version (React Native) </li> 
+<li>AI-powered smart replies</li> 
+<li>End-to-end encryption (production level) </li> 
+<h2 align="center">🤝 Contributing</h2
+<b>We welcome contributions! Fork, make changes, and submit a PR.</b>
 
+<h3>📜 License </h3>
+<p>This project is licensed under the MIT License.</p>
+
+  <p align="center"><i>Made with ❤️ by Our Team | Powered by ☀️ Sanatan-inspired Values</i></p> 
+</footer>
 ---
 
 ## 🎯 **Project Overview**
@@ -92,17 +105,5 @@
 ```bash
 git clone https://github.com/your-org/ai-chatting-app.git
 cd ai-chatting-app
-🌟 Future Enhancements
-- Mobile app version (React Native)
-- AI-powered smart replies
-- End-to-end encryption (production level)
-
-🤝 Contributing
-We welcome contributions! Fork, make changes, and submit a PR.
-
-📜 License
-This project is licensed under the MIT License.
-
-<p align="center"> Made with ❤️ by Our Team | Powered by ☀️ Sanatan-inspired Values </p> ```
 
 
