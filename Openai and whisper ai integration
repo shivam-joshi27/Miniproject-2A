@@ -1,0 +1,131 @@
+1️⃣ Setup Project
+
+mkdir ecell-backend
+cd ecell-backend
+npm init -y
+npm install express multer openai dotenv
+
+express → Web server
+
+multer → To handle audio file uploads
+
+openai → OpenAI Node.js SDK
+
+dotenv → Store API keys securely
+
+
+
+---
+
+2️⃣ Project Structure
+
+ecell-backend/
+ ┣ index.js          # Express app entry
+ ┣ .env              # API keys
+ ┗ uploads/          # Folder to store uploaded audio
+
+
+---
+
+3️⃣ .env File
+
+OPENAI_API_KEY=your_openai_api_key_here
+PORT=5000
+
+
+---
+
+4️⃣ index.js (Backend Code)
+
+import express from "express";
+import multer from "multer";
+import OpenAI from "openai";
+import dotenv from "dotenv";
+import fs from "fs";
+
+dotenv.config();
+
+const app = express();
+const port = process.env.PORT || 5000;
+
+// OpenAI client
+const client = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+});
+
+// Middleware
+app.use(express.json());
+
+// Multer setup for audio uploads
+const upload = multer({ dest: "uploads/" });
+
+/**
+ * Summarization Route
+ * Input: { text: "long text here" }
+ * Output: summary
+ */
+app.post("/summarize", async (req, res) => {
+  try {
+    const { text } = req.body;
+
+    const response = await client.chat.completions.create({
+      model: "gpt-4o-mini",
+      messages: [
+        { role: "system", content: "You are a summarization assistant." },
+        { role: "user", content: `Summarize this text: ${text}` },
+      ],
+    });
+
+    const summary = response.choices[0].message.content;
+    res.json({ summary });
+  } catch (error) {
+    console.error("Error:", error);
+    res.status(500).json({ error: "Failed to summarize text" });
+  }
+});
+
+/**
+ * Whisper Transcription Route
+ * Input: Audio File
+ * Output: Transcribed text
+ */
+app.post("/transcribe", upload.single("audio"), async (req, res) => {
+  try {
+    const audioPath = req.file.path;
+
+    const transcription = await client.audio.transcriptions.create({
+      file: fs.createReadStream(audioPath),
+      model: "whisper-1",
+    });
+
+    // Clean up uploaded file
+    fs.unlinkSync(audioPath);
+
+    res.json({ transcription: transcription.text });
+  } catch (error) {
+    console.error("Error:", error);
+    res.status(500).json({ error: "Failed to transcribe audio" });
+  }
+});
+
+// Start server
+app.listen(port, () => {
+  console.log(`🚀 Server running on http://localhost:${port}`);
+});
+
+
+---
+
+5️⃣ How to Test
+
+Summarization (using Postman/Frontend):
+
+POST http://localhost:5000/summarize
+Body: { "text": "Your long text here..." }
+
+Transcription (Whisper) (using Postman with form-data):
+
+POST http://localhost:5000/transcribe
+form-data: key = "audio", value = <upload your .mp3/.wav file>
+
+
