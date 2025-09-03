@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat - AI Chat App</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Chat Room</h1>
+  </header>
+
+  <main class="chat-container">
+    <!-- Contacts Sidebar -->
+    <aside class="contacts">
+      <h2>Contacts</h2>
+      <ul>
+        <li>Shivam</li>
+        <li>Kaif</li>
+        <li>Ajit</li>
+        <li>Saswat</li>
+      </ul>
+    </aside>
+
+    <!-- Chat Window -->
+    <section class="chat-window">
+      <div id="messages" class="messages">
+        <div class="message received">Hi Ajit 👋</div>
+        <div class="message sent">Hello! How are you?</div>
+      </div>
+
+      <div class="chat-input">
+        <input type="text" id="chatBox" placeholder="Type a message...">
+        <button onclick="sendMessage()" class="btn">Send</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
