@@ -19,7 +19,7 @@ dotenv → Store API keys securely
 
 2️⃣ Project Structure
 
-ecell-backend/
+AIintegrate-backend/
  ┣ index.js          # Express app entry
  ┣ .env              # API keys
  ┗ uploads/          # Folder to store uploaded audio
