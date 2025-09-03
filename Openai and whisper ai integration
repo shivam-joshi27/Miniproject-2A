@@ -1,7 +1,7 @@
 1️⃣ Setup Project
 
-mkdir ecell-backend
-cd ecell-backend
+mkdir AIintegrate-backend
+cd AIintegrate-backend
 npm init -y
 npm install express multer openai dotenv
 
